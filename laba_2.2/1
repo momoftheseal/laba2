@@ -1,0 +1,6 @@
+from random import *
+import turtle as tr
+
+while (True):
+	tr.forward(100 * random())
+	tr.right(360 * random())

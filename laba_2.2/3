@@ -1,0 +1,36 @@
+import turtle as tr
+
+num=[[(0, 0)] for i in range(10)]
+
+inp = open('config.txt')
+
+def read_font(a):
+    s=inp.readline().rstrip()
+    for item in s.split():
+        step, rot = item.split(',')
+        num[a].append((float(step), float(rot)))
+
+
+def num_draw(A):
+    for step, rot in num[A]:
+        tr.forward(step * 50)
+        tr.right(rot)
+
+
+def index_draw(index):
+    for el in index:
+        num_draw(int(el))
+        tr.penup()
+        tr.forward(75)
+        tr.right(90)
+        tr.pendown()
+
+
+for i in range(10):
+    read_font(i)
+tr.left(180)
+tr.penup()
+tr.forward(300)
+tr.pendown()
+tr.left(90)
+index_draw('141700')
